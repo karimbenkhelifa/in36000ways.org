@@ -513,46 +513,6 @@
     &copy; Karim Ben Khelifa &nbsp;·&nbsp; in36000ways.org
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-(function() {
-  // Render email from char codes - bypass CF obfuscation
-  var eLinks = document.querySelectorAll('.email-link');
-  eLinks.forEach(function(el) {
-    var addr = String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(113)+String.fromCharCode(117)+String.fromCharCode(105)+String.fromCharCode(114)+String.fromCharCode(121)+String.fromCharCode(64)+String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(51)+String.fromCharCode(54)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(119)+String.fromCharCode(97)+String.fromCharCode(121)+String.fromCharCode(115)+String.fromCharCode(46)+String.fromCharCode(111)+String.fromCharCode(114)+String.fromCharCode(103);
-    var href = String.fromCharCode(109)+String.fromCharCode(97)+String.fromCharCode(105)+String.fromCharCode(108)+String.fromCharCode(116)+String.fromCharCode(111)+String.fromCharCode(58)+String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(113)+String.fromCharCode(117)+String.fromCharCode(105)+String.fromCharCode(114)+String.fromCharCode(121)+String.fromCharCode(64)+String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(51)+String.fromCharCode(54)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(119)+String.fromCharCode(97)+String.fromCharCode(121)+String.fromCharCode(115)+String.fromCharCode(46)+String.fromCharCode(111)+String.fromCharCode(114)+String.fromCharCode(103);
-    el.textContent = addr;
-    el.href = href;
-  });
-
-  var PW = "shrapnel2026";
-  var SK = "i36k_access";
-
-  function unlock() {
-    var pub = document.getElementById("public-face");
-    var pro = document.getElementById("protected");
-    if (pub) pub.style.display = "none";
-    if (pro) { pro.style.display = "block"; }
-    try { sessionStorage.setItem(SK, "1"); } catch(e) {}
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  function checkPW() {
-    var inp = document.getElementById("pw-input");
-    var err = document.getElementById("pw-error");
-    if (!inp) return;
-    var val = inp.value.trim();
-    if (val === PW) {
-      if (err) err.style.display = "none";
-      unlock();
-    } else {
-      if (err) err.style.display = "block";
-      inp.value = "";
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-    var btn = document.getElementById("pw-btn");
-    if (btn) btn.addEventListener("click", checkPW);
-    var inp = document.getElementById("pw-input");
-    if (inp) inp.addEventListener("keydown", function(e) {
-      i
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="gate.js"></script>
+</body>
+</html>
