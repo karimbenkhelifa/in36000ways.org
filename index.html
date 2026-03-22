@@ -253,7 +253,7 @@
       animation: fadeUp 1.4s ease both;
     }
 
-    #protected.visible { display: block; }
+    #protected.visible { display: block !important; }
 
     .protected-header {
       text-align: center;
@@ -449,13 +449,13 @@
         tech rider, video walkthrough, and the larger installation in development —
         is available on request.
       </p>
-      <a class="email-link" href="/cdn-cgi/l/email-protection#3f56514e4a564d467f56510c090f0f0f485e464c11504d58"><span class="__cf_email__" data-cfemail="d0b9bea1a5b9a2a990b9bee3e6e0e0e0a7b1a9a3febfa2b7">[email&#160;protected]</span></a>
+      <a class="email-link" href="mailto:inquiry&#64;in36000ways&#46;org">inquiry&#64;in36000ways&#46;org</a>
 
       <div class="password-section">
         <p>Have an access code?</p>
         <div class="pw-row">
           <input type="password" id="pw-input" placeholder="Enter code" autocomplete="off" />
-          <button onclick="checkPassword()">Enter</button>
+          <button id="pw-btn">Enter</button>
         </div>
         <p class="pw-error" id="pw-error">Incorrect code</p>
       </div>
@@ -523,30 +523,55 @@
     &copy; Karim Ben Khelifa &nbsp;·&nbsp; in36000ways.org
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ── PASSWORD CONFIG ──────────────────────────────────────────
-    // Change this to whatever password you want to share with visitors.
-    const ACCESS_PASSWORD = "shrapnel2026";
-    // ─────────────────────────────────────────────────────────────
+  <script>
+(function() {
+  // Render email from char codes - bypass CF obfuscation
+  var eLinks = document.querySelectorAll('.email-link');
+  eLinks.forEach(function(el) {
+    var addr = String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(113)+String.fromCharCode(117)+String.fromCharCode(105)+String.fromCharCode(114)+String.fromCharCode(121)+String.fromCharCode(64)+String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(51)+String.fromCharCode(54)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(119)+String.fromCharCode(97)+String.fromCharCode(121)+String.fromCharCode(115)+String.fromCharCode(46)+String.fromCharCode(111)+String.fromCharCode(114)+String.fromCharCode(103);
+    var href = String.fromCharCode(109)+String.fromCharCode(97)+String.fromCharCode(105)+String.fromCharCode(108)+String.fromCharCode(116)+String.fromCharCode(111)+String.fromCharCode(58)+String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(113)+String.fromCharCode(117)+String.fromCharCode(105)+String.fromCharCode(114)+String.fromCharCode(121)+String.fromCharCode(64)+String.fromCharCode(105)+String.fromCharCode(110)+String.fromCharCode(51)+String.fromCharCode(54)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(48)+String.fromCharCode(119)+String.fromCharCode(97)+String.fromCharCode(121)+String.fromCharCode(115)+String.fromCharCode(46)+String.fromCharCode(111)+String.fromCharCode(114)+String.fromCharCode(103);
+    el.textContent = addr;
+    el.href = href;
+  });
 
-    const SESSION_KEY = "i36k_access";
+  var PW = "shrapnel2026";
+  var SK = "i36k_access";
 
-    function unlock() {
-      document.getElementById("public-face").style.display = "none";
-      const p = document.getElementById("protected");
-      p.classList.add("visible");
-      sessionStorage.setItem(SESSION_KEY, "1");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  function unlock() {
+    var pub = document.getElementById("public-face");
+    var pro = document.getElementById("protected");
+    if (pub) pub.style.display = "none";
+    if (pro) { pro.style.display = "block"; }
+    try { sessionStorage.setItem(SK, "1"); } catch(e) {}
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function checkPW() {
+    var inp = document.getElementById("pw-input");
+    var err = document.getElementById("pw-error");
+    if (!inp) return;
+    var val = inp.value.trim();
+    if (val === PW) {
+      if (err) err.style.display = "none";
+      unlock();
+    } else {
+      if (err) err.style.display = "block";
+      inp.value = "";
     }
+  }
 
-    function checkPassword() {
-      const val = document.getElementById("pw-input").value.trim();
-      const err = document.getElementById("pw-error");
-      if (val === ACCESS_PASSWORD) {
-        err.style.display = "none";
-        unlock();
-      } else {
-        err.style.display = "block";
-        document.getElementById("pw-input").value = "";
-      }
-    
+  document.addEventListener("DOMContentLoaded", function() {
+    var btn = document.getElementById("pw-btn");
+    if (btn) btn.addEventListener("click", checkPW);
+    var inp = document.getElementById("pw-input");
+    if (inp) inp.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") checkPW();
+    });
+    try {
+      if (sessionStorage.getItem(SK) === "1") unlock();
+    } catch(e) {}
+  });
+})();
+</script>
+</body>
+</html>
