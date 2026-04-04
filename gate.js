@@ -12,7 +12,11 @@
     });
   }
 
-  function sendNotification() {
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  }
+
+  function sendNotification(visitorEmail) {
     var now = new Date();
     var date = now.toLocaleDateString("en-GB", { day: "2-digit", month: "long", year: "numeric" });
     var time = now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
@@ -21,6 +25,7 @@
     emailjs.send("service_1lnfqoc", "template_e2w9v5m", {
       date: date,
       time: time,
+      visitor_email: visitorEmail || "not provided",
       to_email: "karimbenkhelifa@gmail.com"
     }).then(function() {
       console.log("Notification sent");
@@ -39,13 +44,28 @@
   }
 
   function checkPW() {
+    var emailInp = document.getElementById("visitor-email");
+    var emailErr = document.getElementById("email-error");
     var inp = document.getElementById("pw-input");
     var err = document.getElementById("pw-error");
+
+    var visitorEmail = emailInp ? emailInp.value.trim() : "";
+
+    // Validate email first
+    if (!isValidEmail(visitorEmail)) {
+      if (emailErr) emailErr.style.display = "block";
+      if (emailInp) emailInp.focus();
+      return;
+    } else {
+      if (emailErr) emailErr.style.display = "none";
+    }
+
+    // Then check password
     if (!inp) return;
     var val = inp.value.trim();
     if (val === PW) {
       if (err) err.style.display = "none";
-      sendNotification();
+      sendNotification(visitorEmail);
       unlock();
     } else {
       if (err) err.style.display = "block";
@@ -63,10 +83,17 @@
 
     var btn = document.getElementById("pw-btn");
     if (btn) btn.addEventListener("click", checkPW);
+
     var inp = document.getElementById("pw-input");
     if (inp) inp.addEventListener("keydown", function(e) {
       if (e.key === "Enter") checkPW();
     });
+
+    var emailInp = document.getElementById("visitor-email");
+    if (emailInp) emailInp.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") checkPW();
+    });
+
     try {
       if (sessionStorage.getItem(SK) === "1") unlock();
     } catch(e) {}
