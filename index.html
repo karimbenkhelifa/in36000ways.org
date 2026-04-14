@@ -255,7 +255,13 @@
       animation: fadeUp 1.4s ease both;
     }
 
-    #protected.visible { display: block !important; }
+    #protected.visible {
+      display: block !important;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
     .protected-header {
       text-align: center;
@@ -402,9 +408,15 @@
       background: #f0ebe3 !important;
       color: #1a1814;
       min-height: 100vh;
-      margin: 0;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       padding-bottom: 4rem;
       text-align: center;
+      box-sizing: border-box;
     }
 
     body:has(#protected.visible) {
@@ -698,39 +710,39 @@
 
 
   <!-- CREDITS -->
-  <div class="credits-inner" style="max-width: 680px; margin: 0 auto 5rem; padding: 0 2rem; text-align: center;">
-    <div style="width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, #7a6045, transparent); margin: 0 auto 3.5rem;"></div>
+  <div class="credits-inner" style="max-width: 680px; margin: 0 auto 5rem; padding: 0 2rem; text-align: center; position:relative; left:0; right:0;">
+    <div style="width: 1px; height: 60px; background: linear-gradient(to bottom, transparent, #a09080, transparent); margin: 0 auto 3.5rem;"></div>
 
-    <p style="font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; color: #7a6045; text-transform: uppercase; margin-bottom: 2.5rem;">Credits</p>
+    <p style="font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; color: #3a3530; text-transform: uppercase; margin-bottom: 2.5rem;">Credits</p>
 
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 2.2; color: #c8bfb0;">
-      <p><span style="color: #e8e0d4;">Artist</span> &nbsp;Karim Ben Khelifa</p>
-      <p><span style="color: #e8e0d4;">Production Director</span> &nbsp;Enzo Leclercq</p>
-      <p><span style="color: #e8e0d4;">Ukraine Producer</span> &nbsp;Igor Burdyga</p>
-      <p><span style="color: #e8e0d4;">Soundscape</span> &nbsp;Felipe Sanchez Luna</p>
-      <p><span style="color: #e8e0d4;">Creative Technologists</span> &nbsp;Pascal Staudt &amp; Max Weber</p>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 2.2; color: #3a3530;">
+      <p><span style="color: #1a1814; font-weight:500;">Artist</span> &nbsp;Karim Ben Khelifa</p>
+      <p><span style="color: #1a1814; font-weight:500;">Production Director</span> &nbsp;Enzo Leclercq</p>
+      <p><span style="color: #1a1814; font-weight:500;">Ukraine Producer</span> &nbsp;Igor Burdyga</p>
+      <p><span style="color: #1a1814; font-weight:500;">Soundscape</span> &nbsp;Felipe Sanchez Luna</p>
+      <p><span style="color: #1a1814; font-weight:500;">Creative Technologists</span> &nbsp;Pascal Staudt &amp; Max Weber</p>
     </div>
 
-    <div style="width: 40px; height: 1px; background: #2e2b28; margin: 2rem auto;"></div>
+    <div style="width: 40px; height: 1px; background: #c8c0b4; margin: 2rem auto;"></div>
 
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; line-height: 2; color: #7a6045;">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; line-height: 2; color: #3a3530;">
       <p>Co-produced by <a href="https://www.ateliernonfiction.com" target="_blank" style="color: #c8bfb0; text-decoration: none; border-bottom: 1px solid #7a6045; padding-bottom: 1px;">Atelier Non-Fiction</a> &nbsp;&amp;&nbsp; <a href="https://www.klingklangklong.com" target="_blank" style="color: #c8bfb0; text-decoration: none; border-bottom: 1px solid #7a6045; padding-bottom: 1px;">KLING KLANG KLONG</a></p>
     </div>
 
-    <div style="width: 40px; height: 1px; background: #2e2b28; margin: 2rem auto;"></div>
+    <div style="width: 40px; height: 1px; background: #c8c0b4; margin: 2rem auto;"></div>
 
-    <p style="font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; color: #7a6045; text-transform: uppercase; margin-bottom: 1.5rem;">Supported by</p>
+    <p style="font-family: 'Space Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; color: #3a3530; text-transform: uppercase; margin-bottom: 1.5rem;">Supported by</p>
 
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; line-height: 2.2; color: #c8bfb0; font-style: italic;">
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; line-height: 2.2; color: #3a3530; font-style: italic;">
       <p>Center for Advanced Virtuality at the Massachusetts Institute of Technology, Cambridge, USA</p>
       <p>Center for Humans and Machines at the Max Planck Institute Human Development Lab, Berlin, Germany</p>
       <p>The City of Kryvyi Rih, Ukraine</p>
       <p><a href="https://oddsystems.io/en/" target="_blank" style="color: #c8bfb0; text-decoration: none; border-bottom: 1px solid #7a6045; padding-bottom: 1px;">Odd Systems</a>, Kyiv, Ukraine</p>
     </div>
 
-    <div style="width: 40px; height: 1px; background: #2e2b28; margin: 2rem auto;"></div>
+    <div style="width: 40px; height: 1px; background: #c8c0b4; margin: 2rem auto;"></div>
 
-    <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: #7a6045; font-style: italic;">Special thanks to the Choir of the City of Kryvyi Rih</p>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: #3a3530; font-style: italic;">Special thanks to the Choir of the City of Kryvyi Rih</p>
   </div>
 
   <div id="back-btn-wrap" style="display:none;text-align:center;padding:2rem 0 0;max-width:680px;margin:0 auto;">
