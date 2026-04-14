@@ -399,63 +399,93 @@
 
     /* ── DOSSIER (PROTECTED) THEME ── */
     #protected {
-      background: #f0ebe3;
+      background: #f0ebe3 !important;
       color: #1a1814;
       min-height: 100vh;
       margin: 0;
       padding-bottom: 4rem;
     }
 
+    body:has(#protected.visible) {
+      background: #f0ebe3;
+    }
+
+    #protected * {
+      color: inherit;
+    }
+
     #protected .protected-header {
       background: #e8e2d9;
       border-bottom: 1px solid #c8c0b4;
-      padding: 3rem 2rem 2rem;
+      padding: 3.5rem 2rem 2.5rem;
       margin-bottom: 0;
+      text-align: center;
     }
 
     #protected .protected-header .tag {
       color: #8a7a65;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
     }
 
     #protected .protected-header h2 {
       color: #1a1814;
       font-style: italic;
       font-weight: 300;
+      letter-spacing: 0.02em;
     }
 
     #protected .content-block {
       border-top: 1px solid #c8c0b4;
       border-bottom: none;
-      max-width: 780px;
+      max-width: 680px;
       margin: 0 auto;
       padding: 2.5rem 2rem;
+      text-align: center;
     }
 
     #protected .block-label {
       color: #a09080;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
     }
 
     #protected .block-title {
       color: #1a1814;
       font-weight: 400;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
     }
 
     #protected .block-body {
       color: #3a3530;
+      text-align: center;
+      margin: 0 auto;
     }
 
     #protected .block-body p {
       font-style: italic;
+      color: #3a3530;
     }
 
     #protected .block-body em {
       font-style: normal;
+      color: #1a1814;
     }
 
     #protected .cta-link {
       color: #8a6a45;
-      border-color: #c8a882;
+      border: 1px solid #c8a882;
       background: transparent;
+      display: inline-flex;
+      margin-top: 1.5rem;
     }
 
     #protected .cta-link:hover {
@@ -466,11 +496,16 @@
 
     #protected .video-wrap {
       background: #e0d9cf;
-      border-color: #c8c0b4;
+      border: 1px solid #c8c0b4;
+      margin-top: 1.5rem;
     }
 
     #protected .video-placeholder {
       color: #a09080;
+    }
+
+    #protected img {
+      border: 1px solid #c8c0b4;
     }
 
     /* ── RESPONSIVE ── */

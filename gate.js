@@ -39,6 +39,8 @@
     var pro = document.getElementById("protected");
     if (pub) pub.style.display = "none";
     if (pro) pro.style.display = "block";
+    document.body.style.background = "#f0ebe3";
+    document.body.style.color = "#1a1814";
     try { sessionStorage.setItem(SK, "1"); } catch(e) {}
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
