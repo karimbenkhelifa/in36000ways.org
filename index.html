@@ -404,6 +404,7 @@
       min-height: 100vh;
       margin: 0;
       padding-bottom: 4rem;
+      text-align: center;
     }
 
     body:has(#protected.visible) {
@@ -412,6 +413,34 @@
 
     #protected * {
       color: inherit;
+    }
+
+    #protected p,
+    #protected h2,
+    #protected h3,
+    #protected li,
+    #protected span,
+    #protected div {
+      color: #3a3530;
+    }
+
+    #protected .protected-header h2,
+    #protected .block-title {
+      color: #1a1814 !important;
+    }
+
+    #protected .block-label,
+    #protected .tag {
+      color: #a09080 !important;
+    }
+
+    #protected .cta-link {
+      color: #8a6a45 !important;
+    }
+
+    #protected .block-body p {
+      color: #3a3530 !important;
+      font-style: italic;
     }
 
     #protected .protected-header {
@@ -605,7 +634,8 @@
   <div id="protected">
     <div class="protected-header">
       <p class="tag">Full Project Dossier</p>
-      <h2><em>In</em> 36,000 <em>Ways</em></h2>
+      <h2 onclick="goHome()" style="cursor:pointer;"><em>In</em> 36,000 <em>Ways</em></h2>
+      <p style="font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.2em;color:#a09080;text-transform:uppercase;margin-top:0.6rem;">Click title to return to front page</p>
     </div>
 
     <!-- MANIFESTO -->
@@ -701,6 +731,10 @@
     <div style="width: 40px; height: 1px; background: #2e2b28; margin: 2rem auto;"></div>
 
     <p style="font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; color: #7a6045; font-style: italic;">Special thanks to the Choir of the City of Kryvyi Rih</p>
+  </div>
+
+  <div id="back-btn-wrap" style="display:none;text-align:center;padding:2rem 0 0;max-width:680px;margin:0 auto;">
+    <button onclick="goHome()" style="font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:#8a6a45;border:1px solid #c8a882;background:transparent;padding:0.8rem 1.8rem;cursor:pointer;">Return to front page</button>
   </div>
 
   <footer>

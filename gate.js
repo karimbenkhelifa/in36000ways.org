@@ -37,13 +37,28 @@
   function unlock() {
     var pub = document.getElementById("public-face");
     var pro = document.getElementById("protected");
+    var btn = document.getElementById("back-btn-wrap");
     if (pub) pub.style.display = "none";
     if (pro) pro.style.display = "block";
+    if (btn) btn.style.display = "block";
     document.body.style.background = "#f0ebe3";
     document.body.style.color = "#1a1814";
     try { sessionStorage.setItem(SK, "1"); } catch(e) {}
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+
+  window.goHome = function() {
+    var pub = document.getElementById("public-face");
+    var pro = document.getElementById("protected");
+    var btn = document.getElementById("back-btn-wrap");
+    if (pro) pro.style.display = "none";
+    if (pub) pub.style.display = "block";
+    if (btn) btn.style.display = "none";
+    document.body.style.background = "#080808";
+    document.body.style.color = "#d4cdc4";
+    try { sessionStorage.removeItem(SK); } catch(e) {}
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   function checkPW() {
     var emailInp = document.getElementById("visitor-email");
