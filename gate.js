@@ -38,9 +38,13 @@
     var pub = document.getElementById("public-face");
     var pro = document.getElementById("protected");
     var btn = document.getElementById("back-btn-wrap");
+    var cFront = document.getElementById("credits-front");
+    var cBack = document.getElementById("credits-back");
     if (pub) pub.style.display = "none";
     if (pro) pro.style.display = "block";
     if (btn) btn.style.display = "block";
+    if (cFront) cFront.style.display = "none";
+    if (cBack) cBack.style.display = "block";
     document.body.style.background = "#f0ebe3";
     document.body.style.color = "#1a1814";
     try { sessionStorage.setItem(SK, "1"); } catch(e) {}
@@ -51,9 +55,13 @@
     var pub = document.getElementById("public-face");
     var pro = document.getElementById("protected");
     var btn = document.getElementById("back-btn-wrap");
+    var cFront = document.getElementById("credits-front");
+    var cBack = document.getElementById("credits-back");
     if (pro) pro.style.display = "none";
     if (pub) pub.style.display = "block";
     if (btn) btn.style.display = "none";
+    if (cFront) cFront.style.display = "block";
+    if (cBack) cBack.style.display = "none";
     document.body.style.background = "#080808";
     document.body.style.color = "#d4cdc4";
     try { sessionStorage.removeItem(SK); } catch(e) {}
